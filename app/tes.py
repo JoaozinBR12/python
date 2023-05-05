@@ -4,9 +4,6 @@ import json
 arquivo = open("arquivo.json", "r")
 lista = list(json.load(arquivo))
 
-lista.append({"nome":"teste","nascimento":"01/01/0000"})
-lista.append({"nome":"carlin","nascimento":"20/05/1000"})
-
 for dicionario in lista:
     nome = dicionario["nome"]
     idade = dicionario["nascimento"]
@@ -19,6 +16,20 @@ for dicionario in lista:
 
     print("\n\n")
     print(f"seu nome é {nome}, sua idade é {idade}")
+
+
+perguta = input("deseja adicionar algum nome e nascimento? (s/n) ")
+
+if perguta.upper() == "S":
+    nome = input("qual o nome que deseja adicionar? ")
+    nascimento = input("qual o nascimento? ")
+
+    pessoa_nova = {
+        "nome": nome,
+        "nascimento":nascimento
+    }
+
+    lista.append(pessoa_nova)
 
 
 print('fim!')
